@@ -1,1 +1,4 @@
 main: jp.mkserver.GUIUtil
+name: GUIUtil
+creator: Mr_IK
+description: Mr_IK's GUI Util Plugin

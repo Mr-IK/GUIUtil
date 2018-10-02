@@ -11,7 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.CodeSource;
 import java.security.ProtectionDomain;
-import java.util.Arrays;
 import java.util.Locale;
 
 
@@ -88,6 +87,33 @@ public class ConfigFileManager {
         URI uri = location.toURI();
         Path path = Paths.get(uri);
         return path;
+    }
+
+    public void updateFile(int size,String font){
+        try{
+            file = new File(getApplicationPath(GUIUtil.class).getParent().toString()+"\\GUIUtil\\config.txt");
+            file.getParentFile().mkdir();
+            if(file.exists()) {
+                file.delete();
+            }
+            if(file.createNewFile()) {
+                MCMAPI.sendLog("[GUIUtil]コンフィグを生成中…");
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true),"utf-8"));
+                bw.write("※※余計な文字列を書かないでください。最悪バグります");
+                bw.newLine();
+                bw.write("※mozi_sizeは文字サイズを変更できます。");
+                bw.newLine();
+                bw.write("mozi_size="+size);
+                bw.newLine();
+                bw.write("※mozi_fontは文字フォントを変えられます。");
+                bw.newLine();
+                bw.write("mozi_font="+font);
+                bw.close();
+            }
+            load();
+        }catch(IOException | URISyntaxException e){
+            MCMAPI.sendLog(e.getMessage());
+        }
     }
 
 

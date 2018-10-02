@@ -6,7 +6,7 @@
 
     <groupId>jp.mkserver</groupId>
     <artifactId>GUIUtil</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
 
     <build>
         <defaultGoal>clean package </defaultGoal>
@@ -33,8 +33,8 @@
             <artifactId>jp.mkserver</artifactId>
             <groupId>MCchatManager</groupId>
             <scope>system</scope>
-            <version>1.1</version>
-            <systemPath>${basedir}/libs/MCchatManager-1.1-jar-with-dependencies.jar</systemPath>
+            <version>1.2</version>
+            <systemPath>${basedir}/libs/MCchatManager-1.2-jar-with-dependencies.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

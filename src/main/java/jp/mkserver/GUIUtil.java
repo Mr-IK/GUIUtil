@@ -11,11 +11,14 @@ import java.util.Locale;
 
 public class GUIUtil  extends PluginManager implements EventManager {
     ConfigFileManager config;
+    SettingPanel set;
     @Override
     public void onEnable() {
         EventAPI.addListener(this);
         gui = MCMAPI.getGUIManager();
         config = new ConfigFileManager(this);
+        set = new SettingPanel(this);
+        PluginsGUI.addGUI(set,"GUIutil");
         MCMAPI.sendLog("[GUIUtil]起動しました。");
     }
 
@@ -34,7 +37,6 @@ public class GUIUtil  extends PluginManager implements EventManager {
         if(mm.equalsIgnoreCase("gutil")) {
             MCMAPI.sendLog("[GUIUtil]!gutil font [フォント名] : フォントを設定");
             MCMAPI.sendLog("[GUIUtil]!gutil size [サイズ] : 文字サイズを設定");
-            MCMAPI.sendLog("[GUIUtil]!gutil guisize [横の長さx縦の長さ] : 文字サイズを設定");
         }else if(mm.startsWith("gutil font ")){
             mm = mm.replace("gutil font ","");
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
